@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <img src="/img/logo.png" alt="Calculator" />
+      <div>
+        <h1>Calculator</h1>
+        <p>by <a href="https://gruman.co">Matthew Gruman</a></p>
+      </div>
+    </header>
+    <p>A calculator that's accurate but also bad at it's job.</p>
+
+    <form action="/calculate" method="post">
+      <label for="expression">Enter expression:</label>
+      <input type="text" id="expression" name="data" required>
+      <button type="submit">Calculate</button>
+    </form>
+    <p id="results">
+      <%= results %>
+    </p>
+    <h3><a onclick="showHide()">Show spoilers</a></h3>
+    <div id="spoilers">
+      <p>Use words (one, thirteen, twenty-two) for numbers. Up to thirty.</p>
+      <ul>
+        <li>+: plus</li>
+        <li>-: minus</li>
+        <li>*: times</li>
+        <li>/: dividedby</li>
+      </ul>
+    </div>
+</body>
+<script>
+  let show = true;
+
+  function showHide() {
+    show = !show;
+    const spoilersDiv = document.getElementById("spoilers");
+
+    if (show) {
+      spoilersDiv.style.display = "block";
+    } else {
+      spoilersDiv.style.display = "none";
+    }
+  }
+
+  showHide();
+</script>
+
+</html>
